@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Benjamin Brasseur</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  </head>
+  <body>
+    <div class="main">
+
+    </div>
+    <div class="circle"></div>
+    <div class="name">
+      <h1>Benjamin Brasseur <span class="blink">|</span></h1>
+    </div>
+    <script type="application/javascript" src="jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      $(document).ready(function(){
+        //Change the backgroud color with a circle
+        $('.circle').addClass('growing-circle');
+        setTimeout(function(){
+          //Change the background color
+          $('body').addClass('started');
+          //Move name update to the top
+          $('.name').addClass('nameUpdate');
+          $('.name').addClass('started');
+          $('.main').addClass('active')
+          setTimeout(function(){
+            $('body').removeClass('started');
+            $('body').addClass('white');
+            $('.circle').addClass('remove-circle');
+          }, 500);
+        }, 1000);
+
+
+        var socket = io();
+        socket.on('gitList',function(list){
+          $('.main').empty();
+          for(i in list){
+            description = list[i].description!=null?list[i].description:"Description à venir";
+            name = list[i].name!=null?list[i].name:"";
+            language = list[i].language!=null?'<div class="language '+list[i].language+'">'+list[i].language+'</div>':"";
+            url = list[i].url!=null?list[i].url:"#";
+            html = '<div>'+
+              '<div class="gitRepo">'+
+                  '<div class="title"><h2><a target="_blank" href="'+url+'">'+name+'</a><small> <a target="_blank" href="'+url+'"><img src="github.png" alt="Voir sur Github" /></a></small></h2></div>'+
+                  language+
+                  '<div class="description">'+description+'</div>'+
+              '</div>'+
+            '</div>';
+            $('.main').append(html);
+          }
+          console.log(list);
+        });
+      });
+    </script>
+  <body>
+</html>
