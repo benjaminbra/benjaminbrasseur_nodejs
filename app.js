@@ -1,13 +1,12 @@
 var express = require('express'),
     github = require('octonode'),
     fs = require('fs'),
+    ids = JSON.parse(fs.readFileSync('ids.json','utf8')),
     app = express(),
     http = require('http'),
     server = http.createServer(app),
     io = require('socket.io')(server),
-    port = process.env.PORT || 80;
-
-    ids= JSON.parse(fs.readFileSync('ids.json', 'utf8'));
+    port = process.env.PORT || ids.port;
 
     var client = github.client({
       username : ids.username,
@@ -15,7 +14,7 @@ var express = require('express'),
     });
 
 //Run the server
-server.listen(port, function () {
+server.listen(port, ids.domain, function () {
     console.log('Server listening at port %d', port);
 });
 

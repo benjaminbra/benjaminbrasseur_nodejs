@@ -1,4 +1,6 @@
 {
   "username": "githubUser",
-  "password": "password"
+  "password": "password",
+  "domain": "domain.fr",
+  "port": "80"
 }
