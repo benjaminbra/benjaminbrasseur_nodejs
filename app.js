@@ -15,6 +15,7 @@ var express = require('express'),
 
 //Run the server
 server.listen(port, ids.domain, function () {
+    console.log('Server host on '+ids.domain);
     console.log('Server listening at port %d', port);
 });
 
