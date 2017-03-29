@@ -27,18 +27,22 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   client.get('/users/benjaminbra/repos', {}, function (err, status, body, headers) {
-    list = Array();
+    socket.emit('clean');
     for(var i=0;body!=null && i<body.length;i++){
       repo = body[i];
-      obj = {
-        "name": repo.name,
-        "description":  repo.description,
-        "language": repo.language,
-        "url": repo.html_url
-      }
-      console.log(obj);
-      list.push(obj);
+      (function(repo){
+        client.get('/repos/'+ids.username+'/'+repo.name+'/languages', {}, function(err, status, languages, headers){
+          obj = {
+            "name": repo.name,
+            "description":  repo.description,
+            "language": languages,
+            "url": repo.html_url
+          }
+          console.log(obj);
+          socket.emit('gitAdd',obj);
+        });
+      })(repo);
+
     }
-    socket.emit('gitList',list);
   });
 });

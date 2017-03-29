@@ -58,7 +58,7 @@ body{
   background-color: #81C784;
   display: inline-block;
   padding: .2em .6em .3em;
-  margin: 0 0 5px 0;
+  margin: 0 5px 5px 0;
   font-size: 75%;
   color: #fff;
   border-radius: .25em;
@@ -74,6 +74,14 @@ body{
 
 .gitRepo .HTML{
   background-color: #c7bb81;
+}
+
+.gitRepo .CSS {
+  background: #81c7b4;
+}
+
+.gitRepo .Game.Maker.Language{
+  background: #2a6d26;
 }
 
 .gitRepo .description{

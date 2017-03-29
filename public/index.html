@@ -36,13 +36,20 @@
 
 
         var socket = io();
-        socket.on('gitList',function(list){
+        socket.on('clean', function(){
           $('.main').empty();
-          for(i in list){
-            description = list[i].description!=null?list[i].description:"Description à venir";
-            name = list[i].name!=null?list[i].name:"";
-            language = list[i].language!=null?'<div class="language '+list[i].language+'">'+list[i].language+'</div>':"";
-            url = list[i].url!=null?list[i].url:"#";
+        });
+
+        socket.on('gitAdd',function(obj){
+            description = obj.description!=null?obj.description:"Description à venir";
+            name = obj.name!=null?obj.name:"";
+            language = "";
+            if(obj.language!=null){
+              for(i in obj.language){
+                language+='<span class="language '+i+'">'+i+'</span>';
+              }
+            }
+            url = obj.url!=null?obj.url:"#";
             html = '<div>'+
               '<div class="gitRepo">'+
                   '<div class="title"><h2><a target="_blank" href="'+url+'">'+name+'</a><small> <a target="_blank" href="'+url+'"><img src="github.png" alt="Voir sur Github" /></a></small></h2></div>'+
@@ -51,8 +58,6 @@
               '</div>'+
             '</div>';
             $('.main').append(html);
-          }
-          console.log(list);
         });
       });
     </script>
