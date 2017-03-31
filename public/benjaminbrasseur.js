@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   socket.on('gitAdd', function(obj) {
       var urlRegex = /(https?:\/\/[^\s]+)/g;
-      description = obj.description != null ? obj.description.replace(urlRegex, function(url) {return '<a href="' + url + '">' + url + '</a>'}) : "Description à venir";
+      description = obj.description != null ? obj.description.replace(urlRegex, function(url) {return '<a target="_blank" href="' + url + '">' + url + '</a>'}) : "Description à venir";
       name = obj.name != null ? obj.name : "";
       language = "";
       if (obj.language != null) {
