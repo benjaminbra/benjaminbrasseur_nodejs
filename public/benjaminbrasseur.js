@@ -18,8 +18,8 @@ $(document).ready(function() {
 
   var socket = io();
   socket.on('clean', function() {
-      $('.main').empty();
-      $('.main').append('<div>Demo of those applications will be available soon.</div>');
+      $('.projects').empty();
+      $('.projects').append('');
   });
 
   socket.on('gitAdd', function(obj) {
@@ -33,13 +33,13 @@ $(document).ready(function() {
           }
       }
       url = obj.url != null ? obj.url : "#";
-      html = '<div>' +
-          '<div class="gitRepo">' +
-          '<div class="title"><h2><a target="_blank" href="' + url + '">' + name + '</a><small> <a target="_blank" href="' + url + '"><img src="github.png" alt="Voir sur Github" /></a></small></h2></div>' +
-          language +
-          '<div class="description">' + description + '</div>' +
-          '</div>' +
-          '</div>';
-      $('.main').append(html);
+      html = '<div> ' +
+'<div class="gitRepo">' +
+'<div class="title"><h2><a target="_blank" href="' + url + '">' + name + '</a><small> <a target="_blank" href="' + url + '"><img src="github.png" alt="Voir sur Github" /></a></small></h2></div>' +
+  language +
+  '<div class="description">' + description + '</div>' +
+  '</div>' +
+  '</div>';
+      $('.projects').append(html);
   });
 });
