@@ -33,13 +33,24 @@ $(document).ready(function() {
           }
       }
       url = obj.url != null ? obj.url : "#";
-      html = '<div> ' +
-'<div class="gitRepo">' +
+      size = $('.projects').children('.gitRepo').length;
+      html = '<div class="gitRepo" id="'+size+'">' +
 '<div class="title"><h2><a target="_blank" href="' + url + '">' + name + '</a><small> <a target="_blank" href="' + url + '"><img src="github.png" alt="Voir sur Github" /></a></small></h2></div>' +
   language +
   '<div class="description">' + description + '</div>' +
-  '</div>' +
   '</div>';
       $('.projects').append(html);
+  });
+});
+
+$('#search').on('keyup',function(){
+  search = $(this).val().toLowerCase().replace(/\s/g,'');
+  $('.projects').children('.gitRepo').each(function(i,e){
+    original = e.textContent.toLowerCase().replace(/\s/g,'');
+    if(search.length > 0 && original.replace(search,'')==original){
+      $('#'+i).css('display','none');
+    } else {
+      $('#'+i).css('display','block');
+    }
   });
 });

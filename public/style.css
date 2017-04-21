@@ -26,12 +26,15 @@ body {
 .main .projects {
   width: 69%;
   display: inline-block;
+  float: left;
 }
 
 .main .contact {
   width: 30%;
   display: inline-block;
   float: right;
+  position: fixed;
+  right: 15px;
 }
 
 .active {
@@ -114,8 +117,17 @@ body {
   background: #174a5b;
 }
 
-.center{
+.b-contact{
   text-align: center;
+  background: #f7f7f7;
+}
+
+.b-contact h3{
+  margin: 5px 0;
+}
+
+.b-contact a{
+  color: #174a5b;
 }
 
 .name h1 {
@@ -126,6 +138,23 @@ body {
   line-height: 2em;
   max-width: 310px;
 }
+
+.name input{
+  font-size: 2em;
+  border: 5px solid white;
+  border-radius: 20px;
+  margin: 20px auto;
+  line-height: 2em;
+  max-width: 310px;
+  color: white;
+  background: rgba(0, 0, 0, 0);
+  text-align: center;
+}
+
+.name input::-webkit-input-placeholder { color: white; }
+.name input:-moz-placeholder { color: white; }
+.name input::-moz-placeholder { color: white; }
+.name input:-ms-input-placeholder { color: white; }
 
 .name button {
   font-size: 2em;
@@ -239,6 +268,7 @@ body {
   .main .projects, .main .contact {
     display: block;
     float: none;
+    position: relative;
     width: 100%;
   }
 }
