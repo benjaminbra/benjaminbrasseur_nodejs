@@ -41,6 +41,34 @@ body {
   display: block;
 }
 
+textarea, input, button {
+  outline: none;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #3a87a1;
+}
+
+.do {
+  position: absolute;
+  top: 120px;
+  background: #3a87a1;
+  padding: 10px;
+  border: 1px solid #154353;
+  border-radius: 2px;
+  left: 40%;
+  display: none;
+}
+
+.do .arrow-up {
+  position: absolute;
+  top: -20px;
+}
+
 .gitRepo {
   margin: 0 15px 5px;
   border: 1px solid #e5e5e5;
@@ -117,16 +145,16 @@ body {
   background: #174a5b;
 }
 
-.b-contact{
+.b-contact {
   text-align: center;
   background: #f7f7f7;
 }
 
-.b-contact h3{
+.b-contact h3 {
   margin: 5px 0;
 }
 
-.b-contact a{
+.b-contact a {
   color: #174a5b;
 }
 
@@ -139,7 +167,7 @@ body {
   max-width: 310px;
 }
 
-.name input{
+.name input {
   font-size: 2em;
   border: 5px solid white;
   border-radius: 20px;
@@ -151,10 +179,21 @@ body {
   text-align: center;
 }
 
-.name input::-webkit-input-placeholder { color: white; }
-.name input:-moz-placeholder { color: white; }
-.name input::-moz-placeholder { color: white; }
-.name input:-ms-input-placeholder { color: white; }
+.name input::-webkit-input-placeholder {
+  color: white;
+}
+
+.name input:-moz-placeholder {
+  color: white;
+}
+
+.name input::-moz-placeholder {
+  color: white;
+}
+
+.name input:-ms-input-placeholder {
+  color: white;
+}
 
 .name button {
   font-size: 2em;

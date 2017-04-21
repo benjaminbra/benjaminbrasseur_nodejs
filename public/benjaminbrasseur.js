@@ -7,11 +7,15 @@ $(document).ready(function() {
       //Move name update to the top
       $('.name').addClass('nameUpdate');
       $('.name').addClass('started');
-      $('.main').addClass('active')
+      $('.main').addClass('active');
       setTimeout(function() {
           $('body').removeClass('started');
           $('body').addClass('white');
           $('.circle').addClass('remove-circle');
+          $('.do').css('display','block');
+          setTimeout(function(){
+            $('.do').css('display','none');
+          }, 6000);
       }, 500);
   }, 1000);
 
@@ -54,3 +58,10 @@ $('#search').on('keyup',function(){
     }
   });
 });
+
+
+setTimeout(function(){
+  setTimeout(function(){
+
+  });
+},1500);
