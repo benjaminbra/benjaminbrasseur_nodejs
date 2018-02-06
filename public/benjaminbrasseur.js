@@ -48,9 +48,9 @@ $(document).ready(function() {
 });
 
 $('#search').on('keyup',function(){
-  search = $(this).val().toLowerCase().replace(/\s/g,'');
+  search = $(this).val().toLowerCase().replace(/[^A-Za-z]/g,'');
   $('.projects').children('.gitRepo').each(function(i,e){
-    original = e.textContent.toLowerCase().replace(/\s/g,'');
+    original = e.textContent.toLowerCase().replace(/[^A-Za-z]/g,'');
     if(search.length > 0 && original.replace(search,'')==original){
       $('#'+i).css('display','none');
     } else {
