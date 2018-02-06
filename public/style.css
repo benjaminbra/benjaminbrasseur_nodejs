@@ -70,9 +70,8 @@ textarea, input, button {
 }
 
 .gitRepo {
-  margin: 0 15px 5px;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
+  margin: 0 15px 10px;
+  border-radius: 2px;
   text-align: left;
   padding: 5px;
 }
@@ -239,6 +238,14 @@ textarea, input, button {
   position: relative;
   animation: moveIt 1s forwards;
   -webkit-animation: moveIt 1s forwards;
+}
+
+.shadow-2{
+  box-shadow: 0 0 2px grey;
+}
+
+.shadow-8{
+  box-shadow: 0 0 8px grey;
 }
 
 .white {

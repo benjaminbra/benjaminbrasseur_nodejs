@@ -15,6 +15,7 @@ $(document).ready(function() {
           $('.do').css('display','block');
           setTimeout(function(){
             $('.do').css('display','none');
+            $('.name').addClass('shadow-8');
           }, 6000);
       }, 500);
   }, 1000);
@@ -38,7 +39,7 @@ $(document).ready(function() {
       }
       url = obj.url != null ? obj.url : "#";
       size = $('.projects').children('.gitRepo').length;
-      html = '<div class="gitRepo" id="'+size+'">' +
+      html = '<div class="gitRepo shadow-2" id="'+size+'">' +
 '<div class="title"><h2><a target="_blank" href="' + url + '">' + name + '</a><small> <a target="_blank" href="' + url + '"><img src="github.png" alt="Voir sur Github" /></a></small></h2></div>' +
   language +
   '<div class="description">' + description + '</div>' +
